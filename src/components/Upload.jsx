@@ -1,8 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
+// import axios from 'axios';
 
 const Upload = () => {
     const cloudinaryRef = useRef();
+    // const [imgUrl,setImg]=useState(null);
+    // const [idx,setIdx]=useState(null);
     const widgetRef = useRef();
+
     const [uploadedImageUrls, setUploadedImageUrls] = useState([]); 
 
     useEffect(() => {
@@ -23,7 +27,12 @@ const Upload = () => {
                 console.log("Upload successful:", result);
                 if (result.event === 'success' && result.info.secure_url) {
                     setUploadedImageUrls(prevUrls => [...prevUrls, result.info.secure_url]);
+                    console.log("Image URL:", result.info.secure_url);
+                    
+                    
                 }
+                // uploadedImageUrls.map(setImg,setIdx);
+                // console.log(imgUrl);
             }
         });
     }, []);
@@ -41,14 +50,17 @@ const Upload = () => {
             <button onClick={handleUploadButtonClick}>
                 Upload Images
             </button>
-            {/* Render uploaded images */}
+            
             {uploadedImageUrls.length > 0 && (
                 <div>
                     <h2>Uploaded Images:</h2>
                     <div className="uploaded-images">
-                        {uploadedImageUrls.map((imageUrl, index) => (
+                        {
+                        uploadedImageUrls.map((imageUrl, index) => (
                             <img key={index} src={imageUrl} alt={`Uploaded ${index + 1}`} />
-                        ))}
+                        ))
+                        //console.log(uploadedImageUrls);
+                        }
                     </div>
                 </div>
             )}
