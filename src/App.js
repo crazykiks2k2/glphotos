@@ -13,7 +13,7 @@ function App() {
         <div className="navbar-links">
           <Link to="/" className="nav-link">Home</Link>
           <Link to="/upload" className="nav-link">Upload</Link>
-          <Link to="/secure-upload" className="nav-link">Secure Upload</Link>
+          <Link to="/bin" className="nav-link">Bin</Link>
         </div>
       </nav>
       <Outlet />

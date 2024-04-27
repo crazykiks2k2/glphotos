@@ -9,15 +9,16 @@ import {
   RouterProvider,
   Route,
 
-}from "react-router-dom";
+}
+from "react-router-dom";
 import Upload from './components/Upload';
-import SecureUpload from './components/SecureUpload';
+import Bin from './components/Bin';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
     <Route path="upload" element={<Upload />} />
-    <Route path="secure-upload" element={<SecureUpload />} />
+    <Route path="bin" element={<Bin />} />
     </Route>
   )
 );
